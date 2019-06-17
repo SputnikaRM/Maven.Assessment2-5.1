@@ -1,5 +1,8 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BasicStringUtils {
     /**
      * @param string1 - Base string to be added to
@@ -7,7 +10,9 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+
+        string1= string1 +string2;
+        return string1;
     }
 
     /**
@@ -15,7 +20,9 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        StringBuilder sb = new StringBuilder(string1);
+        string1=sb.reverse().toString();
+        return string1;
     }
 
     /**
@@ -24,7 +31,12 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        StringBuilder s1= new StringBuilder(string1);
+        StringBuilder s2 = new StringBuilder(string2);
+        string1=s1.reverse().toString();
+        string2=s2.reverse().toString();
+
+        return string1+string2;
     }
 
     /**
@@ -33,7 +45,14 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+        String x = "";
+        String [] chars = charactersToRemove.split(" ");
+        List<String> list = Arrays.asList(chars);
+        for(int y=0;y<string.length();y++){
+            if(!(list.contains(String.valueOf(string.charAt(y))))){
+                x+= string.charAt(y);
+            } }return x;
+
     }
 
     /**
@@ -42,6 +61,9 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+       String x= removeCharacters(string,charactersToRemove);
+        StringBuilder sb=new StringBuilder(x);
+        x=sb.reverse().toString();
+        return x;
     }
 }
