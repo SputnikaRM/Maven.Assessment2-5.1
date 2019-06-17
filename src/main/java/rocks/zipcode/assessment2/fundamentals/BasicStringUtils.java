@@ -61,9 +61,14 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-       String x= removeCharacters(string,charactersToRemove);
+        String x = "";
+        String [] chars = charactersToRemove.split(" ");
+        List<String> list = Arrays.asList(chars);
+        for(int y=0;y<string.length();y++){
+            if(!(list.contains(String.valueOf(string.charAt(y))))){
+                x+= string.charAt(y);
+            } }
         StringBuilder sb=new StringBuilder(x);
-        x=sb.reverse().toString();
-        return x;
+        return sb.reverse().toString();
     }
 }
