@@ -10,7 +10,12 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < amountOfPadding; i++) {
+            sb.append(' ');
+        }
+        return sb.substring(stringToBePadded.length()) +stringToBePadded;
+
     }
 
     /**
@@ -19,7 +24,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+
+        return String.format("%-"+amountOfPadding+"s",stringToBePadded);
     }
 
     /**
@@ -41,7 +47,11 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        for(char c:string.toCharArray()){
+            if(Character.isLetter(c))
+                return true;}
+        return false;
+
     }
 
     /**
@@ -49,7 +59,10 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        for(char c :string.toCharArray()){
+            if(!Character.isDigit(c))
+                return false;}
+        return true;
     }
 
     /**
@@ -57,6 +70,9 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        for(char c :string.toCharArray()){
+            if(!Character.isLetterOrDigit(c))
+                return false;}
+        return true;
     }
 }
